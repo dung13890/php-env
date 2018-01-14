@@ -41,11 +41,11 @@ apt-get install -y --force-yes \
     php7.1-bcmath \
     php7.1-intl \
     php7.1-dev \
+    php7.1-fpm \
     php-pear \
     php-memcached \
     php-redis \
     php-apcu \
-    php-fpm \
     libcurl4-openssl-dev \
     libedit-dev \
     libssl-dev \
@@ -69,7 +69,7 @@ sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/fpm/php.ini
 sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/fpm/php.ini
 mkdir -p /var/run/php
 mkdir -p /var/log/php-fpm
-touch /var/run/php/php7.2-fpm.sock
+touch /var/run/php/php7.1-fpm.sock
 
 # Install Composer, PHPCS
 curl -sS https://getcomposer.org/installer | php
