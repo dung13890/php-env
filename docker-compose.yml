@@ -6,7 +6,7 @@ services:
     volumes:
       - ./:/var/www/app
   workspace:
-    image: dung13890/php-env:php7.2
+    image: dung13890/php-env:php7.3
     restart: always
     volumes_from:
       - application

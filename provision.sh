@@ -22,25 +22,25 @@ apt-add-repository ppa:ondrej/php -y
 # Install PHP-CLI 7, some PHP extentions
 apt-get update
 apt-get install -y --force-yes \
-    php7.2-cli \
-    php7.2-dev \
-    php7.2-common \
-    php7.2-curl \
-    php7.2-json \
-    php7.2-soap \
-    php7.2-xml \
-    php7.2-mbstring \
-    php7.2-mysql \
-    php7.2-pgsql \
-    php7.2-sqlite \
-    php7.2-sqlite3 \
-    php7.2-zip \
-    php7.2-gd \
-    php7.2-xdebug \
-    php7.2-bcmath \
-    php7.2-intl \
-    php7.2-dev \
-    php7.2-fpm \
+    php7.3-cli \
+    php7.3-dev \
+    php7.3-common \
+    php7.3-curl \
+    php7.3-json \
+    php7.3-soap \
+    php7.3-xml \
+    php7.3-mbstring \
+    php7.3-mysql \
+    php7.3-pgsql \
+    php7.3-sqlite \
+    php7.3-sqlite3 \
+    php7.3-zip \
+    php7.3-gd \
+    php7.3-xdebug \
+    php7.3-bcmath \
+    php7.3-intl \
+    php7.3-dev \
+    php7.3-fpm \
     php-pear \
     php-memcached \
     php-redis \
@@ -61,22 +61,22 @@ apt-get install -y --force-yes \
     unzip \
     supervisor
 
-# Installing mcrypt on PHP 7.2
+# Installing mcrypt on PHP 7.3
 printf "\n" | pecl install mcrypt-1.0.1
-bash -c "echo extension=mcrypt.so > /etc/php/7.2/mods-available/mcrypt.ini"
+bash -c "echo extension=mcrypt.so > /etc/php/7.3/mods-available/mcrypt.ini"
 
 # Remove load xdebug extension
-sed -i 's/^/;/g' /etc/php/7.2/cli/conf.d/20-xdebug.ini
+sed -i 's/^/;/g' /etc/php/7.3/cli/conf.d/20-xdebug.ini
 
-# Set php7.2-fpm
-sed -i "s/listen =.*/listen = 0.0.0.0:9000/" /etc/php/7.2/fpm/pool.d/www.conf
-sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.2/fpm/php.ini
-sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.2/fpm/php.ini
-sed -i "s/post_max_size = .*/post_max_size = 50M/" /etc/php/7.2/fpm/php.ini
-sed -i "s/upload_max_filesize = .*/upload_max_filesize = 50M/" /etc/php/7.2/fpm/php.ini
+# Set php7.3-fpm
+sed -i "s/listen =.*/listen = 0.0.0.0:9000/" /etc/php/7.3/fpm/pool.d/www.conf
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.3/fpm/php.ini
+sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.3/fpm/php.ini
+sed -i "s/post_max_size = .*/post_max_size = 50M/" /etc/php/7.3/fpm/php.ini
+sed -i "s/upload_max_filesize = .*/upload_max_filesize = 50M/" /etc/php/7.3/fpm/php.ini
 mkdir -p /var/run/php
 mkdir -p /var/log/php-fpm
-touch /var/run/php/php7.2-fpm.sock
+touch /var/run/php/php7.3-fpm.sock
 
 # Install Composer, PHPCS
 curl -sS https://getcomposer.org/installer | php
