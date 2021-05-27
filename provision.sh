@@ -59,6 +59,7 @@ apt-get install -y --force-yes \
     vim \
     zip \
     unzip \
+    protobuf-compiler \
     supervisor
 
 # Installing mcrypt on PHP 7.3
