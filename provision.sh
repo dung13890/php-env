@@ -64,7 +64,11 @@ apt-get install -y --force-yes \
 
 # Installing mcrypt on PHP 7.3
 printf "\n" | pecl install mcrypt-1.0.1
-bash -c "echo extension=mcrypt.so > /etc/php/7.3/mods-available/mcrypt.ini"
+printf "\n" | pecl install grpc
+printf "\n" | pecl install protobuf
+bash -c "echo extension=mcrypt.so >> /etc/php/7.3/mods-available/mcrypt.ini"
+bash -c "echo extension=grpc.so >> /etc/php/7.3/fpm/php.ini"
+bash -c "echo extension=protobuf.so >> /etc/php/7.3/fpm/php.ini"
 
 # Remove load xdebug extension
 sed -i 's/^/;/g' /etc/php/7.3/cli/conf.d/20-xdebug.ini
