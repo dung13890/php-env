@@ -54,6 +54,8 @@ apt-get install -y --force-yes \
     libsqlite3-dev \
     libmcrypt-dev \
     libreadline-dev \
+    autoconf \
+    zlib1g-dev \
     git \
     curl \
     vim \
