@@ -63,8 +63,8 @@ apt-get install -y --force-yes \
     supervisor
 
 # Installing mcrypt on PHP 7.3
-printf "\n" | pecl install mcrypt-1.0.2
 printf "\n" | pecl channel-update pecl.php.net
+printf "\n" | pecl -d php_suffix=7.3 install mcrypt-1.0.2
 printf "\n" | pecl -d php_suffix=7.3 install grpc
 printf "\n" | pecl -d php_suffix=7.3 install protobuf
 bash -c "echo extension=mcrypt.so >> /etc/php/7.3/mods-available/mcrypt.ini"
