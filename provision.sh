@@ -23,7 +23,6 @@ apt-add-repository ppa:ondrej/php -y
 apt-get update
 apt-get install -y --force-yes \
     php7.3-cli \
-    php7.3-dev \
     php7.3-common \
     php7.3-curl \
     php7.3-json \
@@ -61,16 +60,16 @@ apt-get install -y --force-yes \
     vim \
     zip \
     unzip \
-    protobuf-compiler \
     supervisor
 
 # Installing mcrypt on PHP 7.3
-printf "\n" | pecl install mcrypt-1.0.1
-printf "\n" | pecl install grpc
-printf "\n" | pecl install protobuf
+printf "\n" | pecl install mcrypt-1.0.2
+printf "\n" | pecl channel-update pecl.php.net
+printf "\n" | pecl -d php_suffix=7.3 install grpc
+printf "\n" | pecl -d php_suffix=7.3 install protobuf
 bash -c "echo extension=mcrypt.so >> /etc/php/7.3/mods-available/mcrypt.ini"
-bash -c "echo extension=grpc.so >> /etc/php/7.3/fpm/php.ini"
-bash -c "echo extension=protobuf.so >> /etc/php/7.3/fpm/php.ini"
+bash -c "echo extension=grpc.so >> /etc/php/7.3/cli/php.ini"
+bash -c "echo extension=protobuf.so >> /etc/php/7.3/cli/php.ini"
 
 # Remove load xdebug extension
 sed -i 's/^/;/g' /etc/php/7.3/cli/conf.d/20-xdebug.ini
